@@ -24,11 +24,17 @@
                                         <rect key="frame" x="0.0" y="0.0" width="333" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="userNameTextFieldTapped" destination="BYZ-38-t0r" eventType="editingDidEnd" id="N9m-KM-e7o"/>
+                                        </connections>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="vUv-p2-AmE" userLabel="Password TF">
                                         <rect key="frame" x="0.0" y="54" width="333" height="34"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <action selector="passwordTextFieldTapped" destination="BYZ-38-t0r" eventType="editingDidEnd" id="LNx-AM-fEs"/>
+                                        </connections>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5s7-WN-zfj">
                                         <rect key="frame" x="0.0" y="108" width="333" height="34"/>
@@ -39,6 +45,7 @@
                                             <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         </state>
                                         <connections>
+                                            <action selector="logInButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="4eV-8r-I2A"/>
                                             <segue destination="XJT-Fx-jOc" kind="show" id="kqK-hC-sWV"/>
                                         </connections>
                                     </button>
@@ -51,6 +58,9 @@
                                 <state key="normal" title="Forgot Password?">
                                     <color key="titleColor" name="AccentColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="forgotPasswordButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="aSh-hY-zyw"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZt-1U-vjD" userLabel="Forgot User Name? button">
                                 <rect key="frame" x="30" y="497" width="118" height="28"/>
@@ -59,6 +69,9 @@
                                 <state key="normal" title="Forgot User Name?">
                                     <color key="titleColor" name="AccentColor"/>
                                 </state>
+                                <connections>
+                                    <action selector="forgotUserNameButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="fMp-B3-xqV"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
@@ -74,6 +87,13 @@
                             <constraint firstItem="AZt-1U-vjD" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="30" id="yRd-PE-VCn"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="forgotPasswordButton" destination="wnT-IU-XGp" id="GgN-rR-WtG"/>
+                        <outlet property="forgotUserNameButton" destination="AZt-1U-vjD" id="FsJ-xA-Nll"/>
+                        <outlet property="logInButton" destination="5s7-WN-zfj" id="9fx-vi-5hr"/>
+                        <outlet property="passwordTextField" destination="vUv-p2-AmE" id="Eo8-ge-d25"/>
+                        <outlet property="userNameTextField" destination="QXH-Iy-kqq" id="OzR-fc-6gf"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
@@ -122,6 +142,9 @@
                                 <state key="normal" title="Log out">
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="logOutButtonTapped" destination="XJT-Fx-jOc" eventType="touchUpInside" id="tkh-W3-m28"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="72N-9Q-EAk"/>
@@ -134,6 +157,10 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="nlp-Gg-27C"/>
+                    <connections>
+                        <outlet property="logOutButton" destination="cO3-tU-zde" id="7Y7-t4-XKn"/>
+                        <outlet property="userNameWelcomeLabel" destination="AYp-qu-x4L" id="hEv-2V-ebc"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OyC-NC-e2R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
