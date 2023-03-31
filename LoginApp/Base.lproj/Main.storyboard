@@ -90,8 +90,8 @@
                         <outlet property="forgotPasswordButton" destination="wnT-IU-XGp" id="GgN-rR-WtG"/>
                         <outlet property="forgotUserNameButton" destination="AZt-1U-vjD" id="FsJ-xA-Nll"/>
                         <outlet property="logInButton" destination="5s7-WN-zfj" id="9fx-vi-5hr"/>
-                        <outlet property="passwordTextField" destination="vUv-p2-AmE" id="Eo8-ge-d25"/>
-                        <outlet property="userNameTextField" destination="QXH-Iy-kqq" id="OzR-fc-6gf"/>
+                        <outlet property="passwordTF" destination="vUv-p2-AmE" id="Eo8-ge-d25"/>
+                        <outlet property="userNameTF" destination="QXH-Iy-kqq" id="OzR-fc-6gf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
