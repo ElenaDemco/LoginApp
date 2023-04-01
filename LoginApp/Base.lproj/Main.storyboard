@@ -40,7 +40,7 @@
                                         </state>
                                         <connections>
                                             <action selector="logInButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="4eV-8r-I2A"/>
-                                            <segue destination="XJT-Fx-jOc" kind="presentation" id="kqK-hC-sWV"/>
+                                            <segue destination="XJT-Fx-jOc" kind="presentation" identifier="" id="kqK-hC-sWV"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -138,7 +138,7 @@
                                 </state>
                                 <connections>
                                     <action selector="logOutButtonTapped" destination="XJT-Fx-jOc" eventType="touchUpInside" id="tkh-W3-m28"/>
-                                    <segue destination="5WF-M2-Vb2" kind="unwind" unwindAction="unwindWithSegue:" id="Kwy-sO-3cz"/>
+                                    <segue destination="5WF-M2-Vb2" kind="unwind" unwindAction="unwindToLogInScreenWithSegue:" id="BkY-J1-44f"/>
                                 </connections>
                             </button>
                         </subviews>
