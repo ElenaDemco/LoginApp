@@ -49,8 +49,8 @@ final class LogInViewController: UIViewController {
     // MARK: - IB Actions
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
-        userNameTF.text = user.login
-        passwordTF.text = user.password
+        userNameTF.text = ""
+        passwordTF.text = ""
     }
     
     @IBAction func logInButtonTapped() {
