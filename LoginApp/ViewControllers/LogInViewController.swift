@@ -25,6 +25,9 @@ final class LogInViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         logInButton.layer.cornerRadius = 8
+        
+        userNameTF.text = user.login
+        passwordTF.text = user.password
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -33,17 +36,21 @@ final class LogInViewController: UIViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        guard let welcomeVC = segue.destination as? WelcomeViewController else {
-            return
+        if segue.identifier == "showTabBarController" {
+            let tabBarController = segue.destination as? UITabBarController
+            let welcomeVC = tabBarController?.viewControllers?.first as? WelcomeViewController
+            let profileVC = tabBarController?.viewControllers?.last as? ProfileViewController
+        
+            welcomeVC?.user = user
+            profileVC?.user = user
         }
-        welcomeVC.userName = userNameTF.text
     }
     
     // MARK: - IB Actions
     
     @IBAction func unwind(for segue: UIStoryboardSegue) {
-        userNameTF.text = ""
-        passwordTF.text = ""
+        userNameTF.text = user.login
+        passwordTF.text = user.password
     }
     
     @IBAction func logInButtonTapped() {
@@ -56,7 +63,7 @@ final class LogInViewController: UIViewController {
             )
             return
         }
-        performSegue(withIdentifier: "showWelcomeVC", sender: nil)
+        performSegue(withIdentifier: "showTabBarController", sender: nil)
     }
     
     @IBAction func forgotRegisterData(_ sender: UIButton) {
@@ -75,7 +82,6 @@ final class LogInViewController: UIViewController {
         )
         
         let okAction = UIAlertAction(title: "OK", style: .default) { _ in
-            self.passwordTF.text = ""
         }
         alert.addAction(okAction)
         present(alert, animated: true)
