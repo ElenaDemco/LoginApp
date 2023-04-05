@@ -13,11 +13,13 @@ final class WelcomeViewController: UIViewController {
     
     @IBOutlet var userNameWelcomeLabel: UILabel!
     
-    @IBOutlet var logOutButton: UIButton!
-    
-    private let gradientLayer = CAGradientLayer()
+    // MARK: - Properties
     
     var userName: String!
+    
+    // MARK: - Private properties
+    
+    private let gradientLayer = CAGradientLayer()
     
     // MARK: - View life cycle
     
@@ -27,14 +29,7 @@ final class WelcomeViewController: UIViewController {
         userNameWelcomeLabel.text = userName + "!"
         applyGradientBackground()
     }
-    
-    // MARK: - IB Action
-    
-    @IBAction func logOutButtonTapped() {
-        view.endEditing(true)
-        dismiss(animated: true)
-    }
-    
+
     // MARK: - Private Methods
     
     private func applyGradientBackground() {
