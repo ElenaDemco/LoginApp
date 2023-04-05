@@ -40,12 +40,12 @@
                                         </state>
                                         <connections>
                                             <action selector="logInButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="4eV-8r-I2A"/>
-                                            <segue destination="XJT-Fx-jOc" kind="presentation" identifier="" id="kqK-hC-sWV"/>
+                                            <segue destination="XJT-Fx-jOc" kind="presentation" identifier="showWelcomeVC" id="kqK-hC-sWV"/>
                                         </connections>
                                     </button>
                                 </subviews>
                             </stackView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnT-IU-XGp" userLabel="Forgot Password? button">
+                            <button opaque="NO" tag="1" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wnT-IU-XGp" userLabel="Forgot Password? button">
                                 <rect key="frame" x="181" y="315" width="109" height="28"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
@@ -53,7 +53,7 @@
                                     <color key="titleColor" name="AccentColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="forgotPasswordButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="aSh-hY-zyw"/>
+                                    <action selector="forgotRegisterData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="xyl-8c-xdJ"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AZt-1U-vjD" userLabel="Forgot User Name? button">
@@ -64,7 +64,7 @@
                                     <color key="titleColor" name="AccentColor"/>
                                 </state>
                                 <connections>
-                                    <action selector="forgotUserNameButtonTapped" destination="BYZ-38-t0r" eventType="touchUpInside" id="fMp-B3-xqV"/>
+                                    <action selector="forgotRegisterData:" destination="BYZ-38-t0r" eventType="touchUpInside" id="YY6-U0-bhm"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -82,8 +82,6 @@
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="forgotPasswordButton" destination="wnT-IU-XGp" id="GgN-rR-WtG"/>
-                        <outlet property="forgotUserNameButton" destination="AZt-1U-vjD" id="FsJ-xA-Nll"/>
                         <outlet property="logInButton" destination="5s7-WN-zfj" id="9fx-vi-5hr"/>
                         <outlet property="passwordTF" destination="vUv-p2-AmE" id="Eo8-ge-d25"/>
                         <outlet property="userNameTF" destination="QXH-Iy-kqq" id="OzR-fc-6gf"/>
@@ -137,8 +135,7 @@
                                     <color key="titleColor" red="0.99999600649999998" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
                                 <connections>
-                                    <action selector="logOutButtonTapped" destination="XJT-Fx-jOc" eventType="touchUpInside" id="tkh-W3-m28"/>
-                                    <segue destination="5WF-M2-Vb2" kind="unwind" unwindAction="unwindToLogInScreenWithSegue:" id="BkY-J1-44f"/>
+                                    <segue destination="5WF-M2-Vb2" kind="unwind" unwindAction="unwindFor:" id="E8k-5N-N2t"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -153,7 +150,6 @@
                     </view>
                     <navigationItem key="navigationItem" id="nlp-Gg-27C"/>
                     <connections>
-                        <outlet property="logOutButton" destination="cO3-tU-zde" id="7Y7-t4-XKn"/>
                         <outlet property="userNameWelcomeLabel" destination="AYp-qu-x4L" id="hEv-2V-ebc"/>
                     </connections>
                 </viewController>
