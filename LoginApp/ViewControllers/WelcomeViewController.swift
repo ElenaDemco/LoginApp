@@ -13,27 +13,33 @@ final class WelcomeViewController: UIViewController {
     
     @IBOutlet var userNameWelcomeLabel: UILabel!
     
-    // MARK: - Properties
+    @IBOutlet var greetingFromUser: UILabel!
     
-    var userName: String!
+    // MARK: - Public Properties
     
-    // MARK: - Private properties
-    
-    private let gradientLayer = CAGradientLayer()
+    var user: User!
     
     // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        userNameWelcomeLabel.text = userName + "!"
-        applyGradientBackground()
+        let person = Person.getPerson()
+        
+        userNameWelcomeLabel.text = user.login + "!"
+        greetingFromUser.text = "My name is \(person.name) \(person.surname)."
+        
+        view.applyGradientBackground()
     }
+}
 
-    // MARK: - Private Methods
+// MARK: - Extensions
+
+extension UIView{
     
-    private func applyGradientBackground() {
-        gradientLayer.frame = view.bounds
+    func applyGradientBackground() {
+        let gradientLayer = CAGradientLayer()
+        gradientLayer.frame = bounds
         
         let startColor = UIColor(
             red: 200/255,
@@ -48,6 +54,6 @@ final class WelcomeViewController: UIViewController {
             alpha: 1).cgColor
         
         gradientLayer.colors = [startColor, endColor]
-        view.layer.insertSublayer(gradientLayer, at: 0)
+        layer.insertSublayer(gradientLayer, at: 0)
     }
 }
