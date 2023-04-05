@@ -16,8 +16,10 @@ final class LogInViewController: UIViewController {
     
     @IBOutlet var logInButton: UIButton!
     
-    @IBOutlet var forgotUserNameButton: UIButton!
-    @IBOutlet var forgotPasswordButton: UIButton!
+    // MARK: - Private properties
+    
+    private let user = "Alexey"
+    private let password = "111"
     
     // MARK: - View life cycle
     
@@ -31,48 +33,41 @@ final class LogInViewController: UIViewController {
         view.endEditing(true)
     }
     
-    override func prepare(
-        for segue: UIStoryboardSegue, sender: Any?) {
-            guard let welcomeVC = segue.destination as? WelcomeViewController else {
-                return
-            }
-            welcomeVC.userName = userNameTF.text
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        guard let welcomeVC = segue.destination as? WelcomeViewController else {
+            return
         }
+        welcomeVC.userName = userNameTF.text
+    }
     
     // MARK: - IB Actions
     
-    @IBAction func unwindToLogInScreen(segue: UIStoryboardSegue) {
-        guard let _ = segue.source as? WelcomeViewController else { return }
+    @IBAction func unwind(for segue: UIStoryboardSegue) {
         userNameTF.text = ""
         passwordTF.text = ""
-        view.endEditing(true)
     }
     
     @IBAction func logInButtonTapped() {
         
-        let userName = userNameTF.text
-        let password = passwordTF.text
-        
-        if userName == "Alexey" && password == "111" {
-            _ = WelcomeViewController()
-        } else {
+        guard userNameTF.text == user && passwordTF.text == password else {
             showAlert(
-                withTitle: "Invalid login or password",
-                andMessage: "Please, enter correct login and password"
+                title: "Invalid login or password",
+                message: "Please, enter correct login and password",
+                textField: passwordTF
             )
+            return
         }
+        performSegue(withIdentifier: "showWelcomeVC", sender: nil)
     }
     
-    @IBAction func forgotUserNameButtonTapped() {
-        showAlert(withTitle: "Hint", andMessage: "Your name is Alexey")
-    }
-    
-    @IBAction func forgotPasswordButtonTapped() {
-        showAlert(withTitle: "Hint", andMessage: "Your password is 111")
+    @IBAction func forgotRegisterData(_ sender: UIButton) {
+        sender.tag == 0
+        ? showAlert(title: "Hint", message: "Your name is \(user).")
+        : showAlert(title: "Hint", message: "Your password is \(password).")
     }
     
     // MARK: - Private Methods
-    private func showAlert(withTitle title: String, andMessage message: String) {
+    private func showAlert(title: String, message: String, textField: UITextField? = nil) {
         
         let alert = UIAlertController(
             title: title,
