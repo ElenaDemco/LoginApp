@@ -18,8 +18,7 @@ final class LogInViewController: UIViewController {
     
     // MARK: - Private properties
     
-    private let user = "Alexey"
-    private let password = "111"
+    private let user = User.getUserData()
     
     // MARK: - View life cycle
     
@@ -49,7 +48,7 @@ final class LogInViewController: UIViewController {
     
     @IBAction func logInButtonTapped() {
         
-        guard userNameTF.text == user && passwordTF.text == password else {
+        guard userNameTF.text == user.login && passwordTF.text == user.password else {
             showAlert(
                 title: "Invalid login or password",
                 message: "Please, enter correct login and password",
@@ -62,8 +61,8 @@ final class LogInViewController: UIViewController {
     
     @IBAction func forgotRegisterData(_ sender: UIButton) {
         sender.tag == 0
-        ? showAlert(title: "Hint", message: "Your name is \(user).")
-        : showAlert(title: "Hint", message: "Your password is \(password).")
+        ? showAlert(title: "Hint", message: "Your name is \(user.login).")
+        : showAlert(title: "Hint", message: "Your password is \(user.password).")
     }
     
     // MARK: - Private Methods
