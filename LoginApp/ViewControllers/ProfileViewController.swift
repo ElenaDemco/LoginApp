@@ -31,7 +31,6 @@ final class ProfileViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         view.applyGradientBackground()
         
         name.text = "Name: \(person.name)"

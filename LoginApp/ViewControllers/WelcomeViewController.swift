@@ -19,21 +19,22 @@ final class WelcomeViewController: UIViewController {
     
     var user: User!
     
+    // MARK: - Private Properties
+    
+    private let person = Person.getPerson()
+    
     // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        let person = Person.getPerson()
+        view.applyGradientBackground()
         
         userNameWelcomeLabel.text = user.login + "!"
         greetingFromUser.text = "My name is \(person.name) \(person.surname)."
-        
-        view.applyGradientBackground()
     }
 }
 
-// MARK: - Extensions
+// MARK: - Extension
 
 extension UIView{
     

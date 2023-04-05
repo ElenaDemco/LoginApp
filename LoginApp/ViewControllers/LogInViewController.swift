@@ -40,7 +40,7 @@ final class LogInViewController: UIViewController {
             let tabBarController = segue.destination as? UITabBarController
             let welcomeVC = tabBarController?.viewControllers?.first as? WelcomeViewController
             let profileVC = tabBarController?.viewControllers?.last as? ProfileViewController
-        
+            
             welcomeVC?.user = user
             profileVC?.user = user
         }
@@ -73,6 +73,7 @@ final class LogInViewController: UIViewController {
     }
     
     // MARK: - Private Methods
+    
     private func showAlert(title: String, message: String, textField: UITextField? = nil) {
         
         let alert = UIAlertController(
